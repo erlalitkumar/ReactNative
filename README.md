@@ -1,2 +1,0 @@
-# ReactNative
-React native - practice
