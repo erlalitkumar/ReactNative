@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import Hello from './components/hello';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,15 +25,15 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
+export default class App extends React.Component {
+  render() {
+    return (
       <View style={styles.container}>
-        <Text>Hello World!!</Text>
+        <Hello name={'Lalit'} enthusiasmLevel={3} />
       </View>
-    </>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -42,5 +43,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default App;
