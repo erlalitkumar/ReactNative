@@ -28,7 +28,7 @@ const App: () => React$Node = () => {
   return (
     <>
       <View style={styles.container}>
-        <Text>Hello World!!! hey there0</Text>
+        <Text>Hello World!!</Text>
       </View>
     </>
   );
