@@ -29,7 +29,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Hello name={'Lalit'} enthusiasmLevel={3} />
+        <Hello name={'Lalit'} enthusiasmLevel={6} />
       </View>
     );
   }
