@@ -3,9 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import LoginScreen from './screens/LoginScreen';
 
 const MainNevigator = createStackNavigator({
-  Login: {
-    screen: LoginScreen
-  }
+  Login: LoginScreen
 })
 const App = createAppContainer(MainNevigator)
 
