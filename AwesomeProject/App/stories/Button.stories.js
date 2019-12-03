@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react-native";
 import { action } from "@storybook/addon-actions";
 
 
+import { BufferView } from "./decorator";
 import { Button } from "../component/Button";
 import { BufferView } from "./decorator";
 
