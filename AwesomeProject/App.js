@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -16,23 +8,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+export default function App() {
   return (
-    <>
-      <View style={styles.container}>
-        <Text>Hello World!!</Text>
-      </View>
-    </>
+    <View style={styles.container}>
+      <Text>Hello</Text>
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -42,5 +24,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default App;
