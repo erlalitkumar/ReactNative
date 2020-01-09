@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -14,25 +6,45 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <View style={styles.container}>
-        <Text>Hello World!!</Text>
-      </View>
-    </>
-  );
-};
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <View style={styles.container}>
+          <Text>Hello World!!</Text>
+          <Button
+            onPress={() => {
+              this.props.navigation.navigate('test');
+            }}
+            title={'Go to Test'}
+          />
+        </View>
+      </>
+    );
+  }
+}
+class Test extends React.Component {
+  render() {
+    return (
+      <>
+        <View style={styles.container}>
+          <Text>Hello World!!</Text>
+          <Button
+            onPress={() => {
+              this.props.navigation.navigate('home');
+            }}
+            title={'Go to Home'}
+          />
+        </View>
+      </>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -43,4 +55,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+const AppNavigation = createStackNavigator(
+  {
+    home: App,
+    test: Test,
+  },
+  {
+    initialRouteName: 'home',
+  },
+);
+
+export default createAppContainer(AppNavigation);
