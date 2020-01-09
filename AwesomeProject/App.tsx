@@ -1,17 +1,58 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Button} from 'react-native';
+import {
+  createStackNavigator,
+  createAppContainer,
+  NavigationScreenProp,
+  NavigationState,
+  NavigationParams,
+} from 'react-navigation';
 
-export default class App extends React.Component {
+interface Props {
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+}
+
+class App extends React.Component<Props> {
   render() {
+    const {navigation} = this.props;
     return (
       <View style={styles.container}>
         <Text>Hello world</Text>
+        <Button
+          title={'GO to Test'}
+          onPress={() => navigation.navigate('Test')}
+        />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+class Test extends React.Component<Props> {
+  render() {
+    const {navigation} = this.props;
+    return (
+      <View style={styles.container}>
+        <Text>Hello world</Text>
+        <Button
+          title={'GO to Test'}
+          onPress={() => navigation.navigate('Home')}
+        />
+      </View>
+    );
+  }
+}
+
+const AppNavigation = createStackNavigator(
+  {
+    Home: App,
+    Test: Test,
+  },
+  {
+    initialRouteName: 'Home',
+  },
+);
+
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -19,3 +60,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default createAppContainer(AppNavigation);
