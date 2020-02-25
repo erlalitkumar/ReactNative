@@ -1,39 +1,14 @@
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
+import Counter from './src/Counter';
 
 export default class App extends React.Component {
-  state = {
-    counter: 0,
-  };
-  increaseCounter = () => {
-    this.setState({counter: this.state.counter + 1});
-  }
-  decreaseCounter = () => {
-    this.setState({counter: this.state.counter - 1});
-  }
-
   render() {
-    return (
-      <View style={styles.container}>
-        <View
-          style={{
-            flexDirection: 'row',
-            width: 300,
-            justifyContent: 'space-around',
-          }}>
-          <TouchableOpacity onPress={() => this.increaseCounter()}>
-            <Text style={{fontSize: 20}}>Increment</Text>
-          </TouchableOpacity>
-          <Text style={{fontSize: 20}}>{this.state.counter}</Text>
-          <TouchableOpacity onPress={() => this.decreaseCounter()}>
-            <Text style={{fontSize: 20}}>Decrement</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
+    return <Counter />;
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const styles = StyleSheet.create({
   container: {
     flex: 1,
