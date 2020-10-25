@@ -2,7 +2,8 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import Counter from './src/Counter';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
+import logger from 'redux-logger';
 
 const initialState = {
   counter: 0,
@@ -17,7 +18,7 @@ const reducer = (state = initialState, action: {type: any}) => {
   return state;
 };
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(logger));
 
 export default class App extends React.Component {
   render() {
