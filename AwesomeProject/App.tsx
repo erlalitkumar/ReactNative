@@ -1,19 +1,13 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import Counter from './src/Counter';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 import logger from 'redux-logger';
+import Search from './src/screens/SearchScreen';
 
-const initialState = {
-  counter: 0,
-};
+const initialState = {};
 const reducer = (state = initialState, action: {type: any}) => {
   switch (action.type) {
-    case 'INCREMENT_COUNTER':
-      return {counter: state.counter + 1};
-    case 'DECREMENT_COUNTER':
-      return {counter: state.counter - 1};
   }
   return state;
 };
@@ -24,7 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Counter />
+        <Search />
       </Provider>
     );
   }
